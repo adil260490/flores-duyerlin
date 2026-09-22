@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Para Duyerlin Elieth Ocampo Blanco</title>
+<style>
+  :root{
+    --bg-a:#02030d; --bg-b:#090a1f; --bg-c:#140d2e;
+    --pink:#ff7ccf; --gold:#ffd84f; --gold2:#fff0a5; --white:#f7fbff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;overflow:hidden;font-family:Segoe UI, Arial, sans-serif}
+  body{
+    color:var(--white);
+    background:
+      radial-gradient(circle at 20% 15%, rgba(255,124,207,.16), transparent 18%),
+      radial-gradient(circle at 80% 25%, rgba(97,201,255,.14), transparent 18%),
+      radial-gradient(circle at 50% 70%, rgba(128,104,255,.17), transparent 22%),
+      linear-gradient(180deg, var(--bg-c), var(--bg-b) 45%, var(--bg-a));
+  }
+  .universe{position:relative;width:100vw;height:100vh;overflow:hidden}
+  .stars,.stars2,.stars3{position:absolute;inset:-20%;background-repeat:repeat;opacity:.9;animation:drift 120s linear infinite}
+  .stars{
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.95) 0 1.1px, transparent 1.5px),
+      radial-gradient(circle, rgba(255,240,165,.85) 0 1.2px, transparent 1.7px),
+      radial-gradient(circle, rgba(163,220,255,.7) 0 1.1px, transparent 1.6px);
+    background-size:85px 85px,130px 130px,170px 170px;
+    background-position:12px 20px,40px 76px,91px 35px;
+  }
+  .stars2{
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.65) 0 1px, transparent 1.5px),
+      radial-gradient(circle, rgba(255,124,207,.35) 0 1.2px, transparent 1.7px);
+    background-size:140px 140px,210px 210px;
+    background-position:24px 60px,100px 20px;
+    transform:scale(1.15);opacity:.5;animation-duration:170s;animation-direction:reverse;
+  }
+  .stars3{
+    background-image: radial-gradient(circle, rgba(255,255,255,.45) 0 1.3px, transparent 1.8px);
+    background-size:240px 240px;opacity:.25;transform:scale(1.35);animation-duration:220s;
+  }
+  @keyframes drift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-120px, 90px, 0); } }
+  .nebula{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 60%, rgba(255,85,180,.12), transparent 20%),
+      radial-gradient(circle at 55% 45%, rgba(105,76,255,.18), transparent 25%),
+      radial-gradient(circle at 82% 72%, rgba(47,185,255,.12), transparent 22%),
+      radial-gradient(circle at 70% 18%, rgba(255,217,79,.08), transparent 18%);
+    filter:blur(20px);
+  }
+  .shooting{
+    position:absolute;width:160px;height:2px;border-radius:999px;
+    background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.95), rgba(255,220,120,0));
+    transform:rotate(-18deg); filter:drop-shadow(0 0 10px rgba(255,255,255,.5));
+    opacity:0; animation:shoot 8s linear infinite;
+  }
+  .shooting.s1{ top:18%; left:72%; animation-delay:0s; }
+  .shooting.s2{ top:32%; left:8%; animation-delay:3s; }
+  .shooting.s3{ top:68%; left:62%; animation-delay:5.5s; width:120px; }
+  @keyframes shoot {
+    0%,85%,100% { opacity:0; transform:translate(0,0) rotate(-18deg); }
+    87% { opacity:1; }
+    98% { opacity:0; transform:translate(-260px, 120px) rotate(-18deg); }
+  }
+  .title{
+    position:absolute;top:5vh;left:50%;transform:translateX(-50%);
+    width:min(92vw,1100px);text-align:center;z-index:50;
+  }
+  .title h1{
+    margin:0;font-weight:900;letter-spacing:.02em;line-height:1.08;
+    font-size:clamp(1.8rem, 4.2vw, 4rem);
+    background:linear-gradient(90deg, #fff7cc 0%, #ffd84f 25%, #fff4ad 50%, #ffb7e9 75%, #fff7cc 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 28px rgba(255,216,79,.08);
+  }
+  .title p{
+    margin:.9rem auto 0;max-width:900px;
+    font-size:clamp(1rem,1.85vw,1.2rem);color:rgba(247,251,255,.88);
+  }
+  .scene{
+    position:absolute;left:50%;top:57%;transform:translate(-50%,-50%);
+    width:min(120vmin,1450px);height:min(120vmin,1450px);max-width:1500px;max-height:1500px;
+  }
+  .galaxy-core{
+    position:absolute;left:50%;top:50%;width:92%;height:92%;transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 50% 50%, rgba(255,255,255,.08) 0 2%, transparent 16%),
+      conic-gradient(from 0deg,
+        rgba(255,255,255,.02),
+        rgba(138,116,255,.18),
+        rgba(255,122,203,.14),
+        rgba(78,207,255,.14),
+        rgba(255,216,79,.08),
+        rgba(255,255,255,.02));
+    filter:blur(14px);animation:spinSlow 48s linear infinite;
+  }
+  .ring{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    border-radius:50%;border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 0 40px rgba(124,104,255,.08) inset;
+    animation:spinSlow 42s linear infinite;
+  }
+  .ring.r1{ width:100%; height:100%; }
+  .ring.r2{ width:80%; height:80%; animation-duration:32s; animation-direction:reverse; }
+  .ring.r3{ width:60%; height:60%; animation-duration:24s; }
+  .ring.r4{ width:40%; height:40%; animation-duration:18s; animation-direction:reverse; }
+  @keyframes spinSlow { to { transform:translate(-50%,-50%) rotate(360deg); } }
+  .sun{
+    position:absolute;left:50%;top:50%;width:18vmin;height:18vmin;min-width:110px;min-height:110px;
+    transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #fffde0 0 8%, #ffe36d 20%, #ffb739 58%, #c96b12 100%);
+    box-shadow:0 0 30px rgba(255,220,120,.95),0 0 80px rgba(255,181,52,.55),0 0 160px rgba(255,145,0,.22);
+    z-index:10;animation:pulse 4s ease-in-out infinite;
+  }
+  @keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.06)}}
+  .planet{
+    position:absolute;border-radius:50%;display:grid;place-items:center;overflow:hidden;
+    box-shadow: inset -22px -18px 35px rgba(0,0,0,.32), inset 10px 12px 22px rgba(255,255,255,.18), 0 0 35px rgba(145,140,255,.18);
+    animation:float 6s ease-in-out infinite;
+  }
+  .planet::after{content:"";position:absolute;inset:0;background:linear-gradient(130deg, rgba(255,255,255,.18), transparent 42%, rgba(0,0,0,.15));}
+  @keyframes float{50% { transform:translateY(-12px) scale(1.02); }}
+  .p1{ width:12vmin; height:12vmin; min-width:90px; min-height:90px; left:7%; top:18%; background:radial-gradient(circle at 35% 28%, #7c66ff, #4c3aaf 62%, #28195b); }
+  .p2{ width:13.5vmin; height:13.5vmin; min-width:100px; min-height:100px; right:6%; top:17%; background:radial-gradient(circle at 35% 28%, #ff81cd, #b1468a 62%, #58234a); animation-delay:.7s;}
+  .p3{ width:11.5vmin; height:11.5vmin; min-width:86px; min-height:86px; left:2%; bottom:24%; background:radial-gradient(circle at 35% 28%, #49d8ff, #258cb5 62%, #113e56); animation-delay:1.4s;}
+  .p4{ width:14vmin; height:14vmin; min-width:104px; min-height:104px; right:8%; bottom:16%; background:radial-gradient(circle at 35% 28%, #89ea7b, #4c9850 62%, #1f4d2f); animation-delay:2.1s;}
+  .p5{ width:10.5vmin; height:10.5vmin; min-width:80px; min-height:80px; left:44%; top:3%; background:radial-gradient(circle at 35% 28%, #ffb66f, #ce743d 62%, #70341a); animation-delay:2.8s;}
+  .p6{ width:12.8vmin; height:12.8vmin; min-width:96px; min-height:96px; left:45%; bottom:1%; background:radial-gradient(circle at 35% 28%, #ddb1ff, #7b5bbb 62%, #41285f); animation-delay:3.6s;}
+  .p7{ width:9vmin; height:9vmin; min-width:74px; min-height:74px; left:25%; top:12%; background:radial-gradient(circle at 35% 28%, #f6ea82, #b09c2f 62%, #61520e); animation-delay:1.9s;}
+  .p8{ width:9.8vmin; height:9.8vmin; min-width:76px; min-height:76px; right:25%; bottom:9%; background:radial-gradient(circle at 35% 28%, #99d0ff, #4878c0 62%, #1c365e); animation-delay:4.2s;}
+  .bouquet{position:relative;width:72%;height:72%;filter:drop-shadow(0 3px 5px rgba(0,0,0,.26))}
+  .flower{position:absolute;width:34%;height:34%}
+  .flower:nth-child(1){ left:6%; top:31%; transform:rotate(-18deg); }
+  .flower:nth-child(2){ right:6%; top:25%; transform:rotate(16deg) scale(.96); }
+  .flower:nth-child(3){ left:32%; top:4%; transform:scale(.88); }
+  .flower:nth-child(4){ left:30%; bottom:6%; transform:scale(.84); }
+  .petal,.center{position:absolute;border-radius:50%}
+  .petal{
+    width:42%;height:42%;left:29%;top:29%;
+    background:linear-gradient(145deg, #fff6af, #ffd726 62%, #f3ab00);
+    box-shadow:0 0 8px rgba(255,220,80,.34);transform-origin:50% 50%;
+  }
+  .petal.a{transform:translateY(-58%)} .petal.b{transform:translateX(58%)} .petal.c{transform:translateY(58%)} .petal.d{transform:translateX(-58%)}
+  .petal.e{transform:rotate(45deg) translateY(-58%)} .petal.f{transform:rotate(135deg) translateY(-58%)} .petal.g{transform:rotate(225deg) translateY(-58%)} .petal.h{transform:rotate(315deg) translateY(-58%)}
+  .center{width:34%;height:34%;left:33%;top:33%;background:radial-gradient(circle at 38% 36%, #915d16, #4d2f09 68%, #2a1603);z-index:3;}
+  .message{
+    position:absolute;left:50%;bottom:3.4vh;transform:translateX(-50%);
+    width:min(94vw, 1100px);z-index:60;text-align:center;padding:1rem 1.2rem;border-radius:22px;
+    background:rgba(13,12,34,.42);border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);box-shadow:0 0 30px rgba(0,0,0,.16);
+  }
+  .message h2{margin:0 0 .35rem;font-size:clamp(1.2rem,2.8vw,2rem);color:#ffe890;}
+  .message p{margin:0;font-size:clamp(1rem,1.75vw,1.2rem);line-height:1.45;color:rgba(255,255,255,.9);}
+  @media (max-width: 768px){ .title{top:4vh} .scene{width:140vmin;height:140vmin;top:60%} .message{bottom:2vh} }
+</style>
+</head>
+<body>
+<div class="universe">
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="nebula"></div>
+
+  <div class="shooting s1"></div>
+  <div class="shooting s2"></div>
+  <div class="shooting s3"></div>
+
+  <header class="title">
+    <h1>Flores amarillas para Duyerlin Elieth Ocampo Blanco</h1>
+    <p>Una galaxia grande, infinita y bonita, con un sistema solar lleno de luz y flores amarillas dentro de cada planeta. ✨</p>
+  </header>
+
+  <section class="scene">
+    <div class="galaxy-core"></div>
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <div class="ring r3"></div>
+    <div class="ring r4"></div>
+
+    <div class="sun"></div>
+
+    <div class="planet p1"></div>
+    <div class="planet p2"></div>
+    <div class="planet p3"></div>
+    <div class="planet p4"></div>
+    <div class="planet p5"></div>
+    <div class="planet p6"></div>
+    <div class="planet p7"></div>
+    <div class="planet p8"></div>
+  </section>
+
+  <section class="message">
+    <h2>Para Duyerlin Elieth Ocampo Blanco</h2>
+    <p>Un universo lleno de flores amarillas, luz y detalles bonitos 💛</p>
+  </section>
+</div>
+
+<script>
+  function flowerHTML(){
+    return `
+      <div class="bouquet">
+        <div class="flower">
+          <span class="petal a"></span><span class="petal b"></span><span class="petal c"></span><span class="petal d"></span>
+          <span class="petal e"></span><span class="petal f"></span><span class="petal g"></span><span class="petal h"></span>
+          <span class="center"></span>
+        </div>
+        <div class="flower">
+          <span class="petal a"></span><span class="petal b"></span><span class="petal c"></span><span class="petal d"></span>
+          <span class="petal e"></span><span class="petal f"></span><span class="petal g"></span><span class="petal h"></span>
+          <span class="center"></span>
+        </div>
+        <div class="flower">
+          <span class="petal a"></span><span class="petal b"></span><span class="petal c"></span><span class="petal d"></span>
+          <span class="petal e"></span><span class="petal f"></span><span class="petal g"></span><span class="petal h"></span>
+          <span class="center"></span>
+        </div>
+        <div class="flower">
+          <span class="petal a"></span><span class="petal b"></span><span class="petal c"></span><span class="petal d"></span>
+          <span class="petal e"></span><span class="petal f"></span><span class="petal g"></span><span class="petal h"></span>
+          <span class="center"></span>
+        </div>
+      </div>`;
+  }
+  document.querySelectorAll('.planet').forEach(p => p.innerHTML = flowerHTML());
+</script>
+</body>
+</html>
